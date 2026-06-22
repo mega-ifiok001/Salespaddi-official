@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { sidebarData } from '@/lib/data';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import { UserButton } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';

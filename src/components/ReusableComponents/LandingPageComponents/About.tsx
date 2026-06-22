@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
-import { FaXTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa6';
-import Image from 'next/image';
+// import Link from 'next/link';
+// import { FaXTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa6';
+// import Image from 'next/image';
 
 const About = () => {
   return (

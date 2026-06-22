@@ -4,7 +4,7 @@ import { RiRobot3Line } from 'react-icons/ri';
 import { LuZap } from 'react-icons/lu';
 import { CiEdit } from 'react-icons/ci';
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const CORE_FEATURES = [
   {

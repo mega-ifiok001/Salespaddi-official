@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { navbarOptions } from '@/lib/data';
-import { CgMenuRightAlt } from 'react-icons/cg'; // Switched to right for better thumb reach
-import { IoClose } from 'react-icons/io5';
+// import { Button } from '@/components/ui/button';
+// import { navbarOptions } from '@/lib/data';
+// import { CgMenuRightAlt } from 'react-icons/cg'; // Switched to right for better thumb reach
+// import { IoClose } from 'react-icons/io5';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { motion, AnimatePresence } from 'framer-motion';
 import { User } from '@prisma/client';
 import { RiRobot3Line } from 'react-icons/ri';
 
@@ -15,7 +15,7 @@ type Props = {
 };
 
 const Navbar = ({ user }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
    const [isScrolled, setIsScrolled] = useState(false);
   
     useEffect(() => {

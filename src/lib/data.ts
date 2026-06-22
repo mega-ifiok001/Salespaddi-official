@@ -1,4 +1,4 @@
-import { House, Sparkle, Webcam, Cog, Star, ShoppingCart } from 'lucide-react';
+import { House, Sparkle, Webcam, Cog, ShoppingCart } from 'lucide-react';
 import { CallStatusEnum } from '@prisma/client';
 
 export const sidebarData = [

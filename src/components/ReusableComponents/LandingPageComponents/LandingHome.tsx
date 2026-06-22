@@ -4,15 +4,15 @@ import React from 'react';
 import { User } from '@prisma/client';
 import { motion } from 'framer-motion';
 import { 
-  Mic, ArrowRight, Sparkles, MessageSquare, 
-  Video, Mail, Check, Shield, Cpu, Activity
+  ArrowRight, Sparkles, MessageSquare, 
+  Video, Mail, Check, Activity
 } from 'lucide-react';
 import Link from 'next/link';
 import { RiRobot3Line } from 'react-icons/ri';
 
 type Props = { user?: User | null };
 
-const LandingHome = ({ user }: Props) => {
+const LandingHome = ({  }: Props) => {
   return (
     <div className="relative min-h-screen w-full bg-[#050806] text-white overflow-hidden selection:bg-[#2c8c88]/40 font-sans">
       

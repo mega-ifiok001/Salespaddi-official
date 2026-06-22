@@ -7,7 +7,6 @@ import {
   LucideArrowRight,
   LucideCheckCircle2,
 } from 'lucide-react';
-import Link from 'next/link';
 import { toast } from 'sonner';
 import { addStripeId, stripeDisconnect } from '@/actions/stripe';
 import { useRouter } from 'next/navigation';
