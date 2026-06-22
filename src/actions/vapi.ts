@@ -14,7 +14,7 @@ export const getAllAssistants = async () => {
       data: getAllAgents,
     };
   } catch (error: unknown) {
-    console.error('Error fetching agents:', error);
+    console.error('Error fetching agents:', error); 
 
     if (typeof error === 'object' && error !== null) {
       const status =

@@ -16,7 +16,7 @@ export const getWebinarAttendence = async (
     const webinar = await prismaClient.webinar.findUnique({
       where: { id: webinarId },
       select: {
-        id: true,
+        id: true, 
         ctaType: true,
         tags: true,
         presenter: true,

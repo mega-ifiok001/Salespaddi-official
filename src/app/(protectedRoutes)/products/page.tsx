@@ -10,7 +10,7 @@ const page = async () => {
 
   if (!userExist?.user) {
     redirect('/sign-in');
-  }
+  } 
 
   const products = await getProductsByOwnerId(userExist.user.id);
 

@@ -19,7 +19,7 @@ export const getStreamIoToken = async (attendee: Attendee | null) => {
 
     const validity = 60 * 60 * 60;
     const token = getStreamClient.generateUserToken({
-      user_id: attendee?.id || 'guest',
+      user_id: attendee?.id || 'guest', 
       validity_in_seconds: validity,
     });
 
@@ -90,8 +90,12 @@ export const createAndStartStream = async (webinar: Webinar) => {
 
     console.log('Stream created and started successfully');
     return { success: true, callId: webinar.id };
-  } catch (err) {
-    console.error('Error creating and starting stream: ', err);
-    throw new Error('Failed to create and start stream');
+    } catch (err: any) {
+    // Log the full error payload for debugging
+    const streamError = err?.response?.data || err?.message || err;
+    console.error('🔴 Stream IO Error Details:', JSON.stringify(streamError, null, 2));
+    
+    // Throw a descriptive error so the frontend gets useful info
+    throw new Error(`Failed to create and start stream: ${err?.message || 'Check server logs for details'}`);
   }
 };

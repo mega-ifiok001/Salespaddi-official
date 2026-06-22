@@ -7,7 +7,7 @@ import { addStripeId } from './stripe';
 
 export async function onAuthenticateUser() {
   try {
-    const user = await currentUser();
+    const user = await currentUser(); 
 
     if (!user) {
       return { status: 403, user: null, message: 'User not authenticated' };

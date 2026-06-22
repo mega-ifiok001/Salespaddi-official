@@ -71,7 +71,7 @@ const CreateWebinarButton = ({ stripeProducts, assistants }: Props) => {
     <Dialog open={isModelOpen} onOpenChange={setIsModelOpen}>
       <DialogTrigger asChild>
         <button
-          className="rounded-xl flex gap-2 items-center hover:cursor-pointer px-2 py-1
+          className="rounded-xl flex gap-2 items-center  hover:cursor-pointer px-2 py-1
           border border-border animated-gradient-bg backdrop-blur-sm text-primary
           "
           onClick={() => setIsModelOpen(true)}
@@ -80,7 +80,7 @@ const CreateWebinarButton = ({ stripeProducts, assistants }: Props) => {
           <span className="text-base">Webinar</span>
         </button>
       </DialogTrigger>
-      <DialogContent className="p-0 bg-transparent border-none w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[85vw] xl:w-[85vw] overflow-hidden">
+      <DialogContent className="p-0 bg-transparent border-none w-[98vw] max-w-[60%] overflow-hidden">
         {isComplete ? (
           <div className="bg-muted text-primary rounded-lg h-full">
             <DialogTitle className="sr-only">Webinar Created</DialogTitle>
@@ -92,7 +92,7 @@ const CreateWebinarButton = ({ stripeProducts, assistants }: Props) => {
         ) : (
           <>
             <DialogTitle className="sr-only">Create Webinar</DialogTitle>
-            <div className="bg-[#27272A]/20 border border-border rounded-xl h-full backdrop-blur-[106px]">
+            <div className="bg-[#27272A]/20 border border-border rounded-xl h-full w-full backdrop-blur-[106px]">
               <MultiStepForm steps={steps} onComplete={handleComplete} />
             </div>
           </>

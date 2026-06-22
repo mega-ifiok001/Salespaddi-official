@@ -88,7 +88,7 @@ const MultiStepForm = ({ steps, onComplete }: Props) => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full !w-full">
       <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
         {/* Left side - Steps */}
         <div className="w-full md:max-w-[200px] p-4 border-b md:border-b-0 md:border-r border-border bg-background/50">
@@ -107,7 +107,7 @@ const MultiStepForm = ({ steps, onComplete }: Props) => {
                         animate={{
                           backgroundColor:
                             isCurrent || isCompleted
-                              ? 'rgb(44, 140, 136)'
+                              ? 'rgb(29, 71, 31)'
                               : 'rgb(31, 41, 55)',
                           scale: [isCurrent && !isCompleted ? 0.8 : 1, 1],
                           transition: { duration: 0.3 },
@@ -158,7 +158,7 @@ const MultiStepForm = ({ steps, onComplete }: Props) => {
                             }}
                             animate={{
                               height: isPast || isCompleted ? '100%' : '0%',
-                              backgroundColor: 'rgb(44, 140, 136)',
+                              backgroundColor: 'rgb(29, 71, 31)',
                             }}
                             transition={{ duration: 0.5, ease: 'easeInOut' }}
                             style={{ width: '100%', height: '100%' }}

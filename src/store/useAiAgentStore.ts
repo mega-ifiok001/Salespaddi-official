@@ -12,3 +12,4 @@ export const useAiAgentStore = create<AiAgentStore>((set) => ({
   setAssistant: (assistant) => set({ assistant }),
   clearAiAssistant: () => set({ assistant: null }),
 }));
+ 

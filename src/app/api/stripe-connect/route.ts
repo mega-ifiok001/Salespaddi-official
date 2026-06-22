@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
         new URL(
           `/settings?success=false&message=Missing+required+parameters`,
           request.url,
-        ),
+        ), 
       );
     }
 
