@@ -153,14 +153,14 @@ const LiveWebinarView = ({
             <User size={16} />
             <span className="text-sm">{viewCount}</span>
           </div>
-          <button
-            onClick={() => setShowChat(!showChat)}
-            className={`px-2 py-1 rounded-full text-sm flex items-center space-x-1 ${
-              showChat
-                ? 'animated-gradient-bg border border-border text-primary-foreground'
-                : 'bg-muted/50'
-            }`}
-          >
+         <button
+  onClick={() => setShowChat(!showChat)}
+  className={`px-2 py-1 rounded-full text-sm flex items-center space-x-1 ${
+    showChat
+      ? 'animated-gradient-bg border border-border text-white'
+      : 'bg-muted/50'
+  }`}
+>
             <MessageSquare size={16} />
             <span>Chat</span>
           </button>
@@ -173,17 +173,17 @@ const LiveWebinarView = ({
             showChat ? 'hidden' : 'flex'
           }`}
         >
-          <div className="flex-1 relative overflow-hidden">
-          {hostParticipant ? (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="relative w-full h-full">
-      <ParticipantView
-        participant={hostParticipant}
-        className="w-full h-full !object-cover"
-      />
+       <div className="flex-1 relative overflow-hidden">
+  {hostParticipant ? (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full">
+        <ParticipantView
+          participant={hostParticipant}
+          className="w-full h-full !object-cover"
+        />
+      </div>
     </div>
-  </div>
-) : (
+  ) : (
               <div
                 className="w-full h-full flex items-center justify-center text-muted-foreground
               flex-col space-y-4"
@@ -263,32 +263,32 @@ const LiveWebinarView = ({
           </div>
         </div>
 
-        {showChat && (
-          <Chat client={chatClient}>
-            <Channel channel={channel}>
-              <div className="w-[96vw] sm:w-72 bg-card border border-border overflow-hidden flex flex-col">
-                <div className="py-2 text-primary px-3 border-b border-border font-medium flex items-center justify-between">
-                  <span className="text-white">Chat</span>
-                  <span className="text-xs text-white bg-muted px-2 py-0.5 rounded-full">
-                    {viewCount} viewers
-                  </span>
-                </div>
+     {showChat && (
+  <Chat client={chatClient}>
+    <Channel channel={channel}>
+      <div className="w-[96vw] sm:w-72 h-full bg-card border border-border overflow-hidden flex flex-col">
+        <div className="py-2 text-primary px-3 border-b border-border font-medium flex items-center justify-between shrink-0">
+          <span className="text-white">Chat</span>
+          <span className="text-xs text-white bg-muted px-2 py-0.5 rounded-full">
+            {viewCount} viewers
+          </span>
+        </div>
 
-                <div className="flex-1 p-2">
-                  <div className="rounded-lg bg-[#141414] h-full overflow-hidden">
-                    <MessageList />
-                  </div>
-                </div>
+        <div className="flex-1 p-2 min-h-0 overflow-hidden">
+          <div className="rounded-lg bg-[#141414] h-full overflow-y-auto">
+            <MessageList />
+          </div>
+        </div>
 
-                <div className="p-2 border-t border-border">
-                  <div className="rounded-lg bg-[#141414]">
-                    <MessageInput />
-                  </div>
-                </div>
-              </div>
-            </Channel>
-          </Chat>
-        )}
+        <div className="p-2 border-t border-border shrink-0">
+          <div className="rounded-lg bg-[#141414]">
+            <MessageInput />
+          </div>
+        </div>
+      </div>
+    </Channel>
+  </Chat>
+)}
       </div>
 
       {dialogOpen && (
