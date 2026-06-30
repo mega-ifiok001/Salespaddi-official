@@ -7,6 +7,7 @@ import {
   useCallStateHooks,
   type Call,
 } from '@stream-io/video-react-sdk';
+import 'stream-chat-react/dist/css/v2/index.css';
 import { StreamChat } from 'stream-chat';
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -175,7 +176,7 @@ const LiveWebinarView = ({
           <div className="flex-1 relative overflow-hidden">
             {hostParticipant ? (
               <div className="w-full h-full flex items-center justify-center">
-                <div className="relative w-full h-full max-w-[200px] max-h-[200px] aspect-square">
+                <div className="relative w-full h-full max-w-full max-h-full aspect-square">
                   <ParticipantView
                     participant={hostParticipant}
                     className="w-full h-full !object-cover"

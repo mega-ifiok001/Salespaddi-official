@@ -5,6 +5,7 @@ import {
   StreamVideoClient,
   User as StreamUser,
 } from '@stream-io/video-react-sdk';
+
 import { ClientProduct, WebinarWithPresenter } from '@/lib/type';
 import { User } from '@prisma/client';
 import React, { useEffect, useState } from 'react';
