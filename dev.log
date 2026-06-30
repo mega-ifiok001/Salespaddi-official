@@ -1,0 +1,19 @@
+
+> SalesPaddi@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.5.12 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.0.10.8:3000
+   - Environments: .env
+   - Experiments (use with caution):
+     · serverActions
+
+ ✓ Starting...
+ ○ Compiling middleware ...
+ ✓ Compiled middleware in 1643ms
+ ✓ Ready in 4.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 22.9s
+ GET / 200 in 24969ms
+[?25h

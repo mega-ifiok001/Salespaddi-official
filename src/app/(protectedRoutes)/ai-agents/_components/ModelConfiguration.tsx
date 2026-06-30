@@ -1,15 +1,14 @@
 'use client';
 
-// import { updateAssistant } from '@/actions/vapi';
+import { updateAssistant } from '@/actions/vapi';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useAiAgentStore } from '@/store/useAiAgentStore';
-import { Info } from 'lucide-react';
-// import { Loader2 } from 'lucide-react';
-// import { useRouter } from 'next/navigation';
+import { Info, Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-// import { toast } from 'sonner';
+import { toast } from 'sonner';
 import ConfigField from './ConfigField';
 import DropDownSelect from './DropDownSelect';
 import {
@@ -21,9 +20,9 @@ const ModelConfiguration = () => {
   const { assistant } = useAiAgentStore();
   const [firstMessage, setFirstMessage] = useState('');
   const [systemPrompt, setSystemPrompt] = useState('');
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     if (assistant) {
@@ -32,27 +31,27 @@ const ModelConfiguration = () => {
     }
   }, [assistant]);
 
-  // const handleUpdateAssistant = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const res = await updateAssistant(
-  //       assistant!.id,
-  //       firstMessage,
-  //       systemPrompt,
-  //     );
+  const handleUpdateAssistant = async () => {
+    setLoading(true);
+    try {
+      const res = await updateAssistant(
+        assistant!.id,
+        firstMessage,
+        systemPrompt,
+      );
 
-  //     if (!res.success) {
-  //       throw new Error(res.message);
-  //     }
-  //     router.refresh();
-  //     toast.success('Assistant Update Successfully');
-  //   } catch (error: unknown) {
-  //     console.error('Error updating assistant', error);
-  //     toast.error('Failed to update assistant');
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+      if (!res.success) {
+        throw new Error(res.message);
+      }
+      router.refresh();
+      toast.success('Assistant Updated Successfully');
+    } catch (error: unknown) {
+      console.error('Error updating assistant', error);
+      toast.error('Failed to update assistant');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!assistant) {
     return (
@@ -78,21 +77,20 @@ const ModelConfiguration = () => {
         <HoverCard>
           <HoverCardTrigger>
             <Button
-              // onClick={handleUpdateAssistant}
-              /*disabled={loading}*/
-              className="w-full sm:w-auto cursor-pointer text-black/60 bg-gray-400 hover:bg-gray-400"
+              onClick={handleUpdateAssistant}
+              disabled={loading}
+              className="w-full sm:w-auto cursor-pointer"
             >
-              {/* {loading ? (
+              {loading ? (
                 <>
-                  <Loader2 className="animate-spin mr-2" />
+                  <Loader2 className="animate-spin mr-2 h-4 w-4" />
                   Updating...
                 </>
-              ) : ( */}
-              Update Assistant
-              {/* )} */}
+              ) : (
+                'Update Assistant'
+              )}
             </Button>
           </HoverCardTrigger>
-       
         </HoverCard>
       </div>
       <p className="text-neutral-400 mb-6 text-sm sm:text-base">
