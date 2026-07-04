@@ -1,89 +1,85 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-// import Image from 'next/image';
 import { FaXTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa6';
+import { RiRobot3Line } from 'react-icons/ri';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="glassBackground text-gray-300 py-5 px-4 border-t-[1px] border-t-gray-700">
-      <div className="container mx-auto flex flex-col items-center text-center">
-        <div className="mb-6 flex items-center gap-2">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-white ubuntu-medium flex items-center gap-2"
-          >
-            
-            <span className="text-2xl">SALESPADDI</span>
-          </Link>
-        </div>
+    <footer className="relative bg-[#050806] text-zinc-400 pt-16 pb-8 px-4 border-t border-white/10 overflow-hidden">
+      {/* Subtle glow, matching the rest of the site */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[200px] bg-[#2c8c8815] blur-[100px] rounded-full -z-10" />
 
-        <nav className="mb-6">
-          <ul className="flex flex-wrap justify-center gap-x-3 sm:gap-x-6 sm:gap-y-3 text-sm sm:text-base">
+      <div className="container mx-auto flex flex-col items-center text-center">
+        <Link
+          href="/"
+          className="mb-8 flex items-center gap-2 text-2xl font-black text-white tracking-tight"
+        >
+          <RiRobot3Line className="text-[#2c8c88]" size={28} />
+          <span>
+            SALES
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2c8c88] to-[#4ade80]">
+              PADDI
+            </span>
+          </span>
+        </Link>
+
+        <nav className="mb-8">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
             <li>
-              <Link
-                href="/#home"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/#home" className="hover:text-white transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                href="/#features"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/#features" className="hover:text-white transition-colors">
                 Features
               </Link>
             </li>
             <li>
-              <Link
-                href="/#workflow"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/#workflow" className="hover:text-white transition-colors">
                 Workflow
               </Link>
             </li>
             <li>
-              <Link
-                href="/#about"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/#about" className="hover:text-white transition-colors">
                 About
               </Link>
             </li>
           </ul>
         </nav>
 
-        <div className="flex gap-6 mb-6">
+        <div className="flex gap-5 mb-8">
           <Link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#2c8c88] hover:border-[#2c8c88]/50 transition-colors"
           >
-            <FaXTwitter size={24} />
+            <FaXTwitter size={16} />
           </Link>
           <Link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#2c8c88] hover:border-[#2c8c88]/50 transition-colors"
           >
-            <FaLinkedinIn size={24} />
+            <FaLinkedinIn size={16} />
           </Link>
           <Link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
+            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#2c8c88] hover:border-[#2c8c88]/50 transition-colors"
           >
-            <FaGithub size={24} />
+            <FaGithub size={16} />
           </Link>
         </div>
 
-        <p className="text-sm opacity-70">
+        <p className="text-xs opacity-50 border-t border-white/5 pt-6 w-full max-w-xs">
           &copy; {currentYear} SalesPaddi. All rights reserved.
         </p>
       </div>

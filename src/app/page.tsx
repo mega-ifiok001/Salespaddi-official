@@ -5,8 +5,8 @@ import Background from '@/components/ReusableComponents/Background';
 import Features from '@/components/ReusableComponents/LandingPageComponents/Features';
 import LandingHome from '@/components/ReusableComponents/LandingPageComponents/LandingHome';
 import Navbar from '@/components/ReusableComponents/LandingPageComponents/Navbar';
-// import Workflow from '@/components/ReusableComponents/LandingPageComponents/Workflow';
-// import About from '@/components/ReusableComponents/LandingPageComponents/About';
+import Workflow from '@/components/ReusableComponents/LandingPageComponents/Workflow';
+import About from '@/components/ReusableComponents/LandingPageComponents/About';
 import Footer from '@/components/ReusableComponents/LandingPageComponents/Footer';
 import { useEffect, useState } from 'react';
 import { User } from '@prisma/client';
@@ -35,22 +35,14 @@ export default function Home() {
         </section>
         <section
           id="features"
-          className="flex items-center justify-center min-h-screen"
         >
           <Features />
         </section>
-        {/* <section
+         <section
           id="workflow"
-          className="flex items-center justify-center min-h-screen"
         >
           <Workflow />
         </section>
-        <section
-          id="about"
-          className="flex items-center justify-center min-h-screen"
-        >
-          <About />
-        </section> */}
       </main>
       <Footer />
     </div>
