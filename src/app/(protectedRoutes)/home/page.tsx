@@ -5,7 +5,7 @@ import QuickActions from './_components/QuickActions';
 import AiAgentOptimization from './_components/AiAgentOptimization';
 import FollowUpCommCenter from './_components/FollowUpCommCenter';
 import OperationalMetrics from './_components/OperationalMetrics';
-import { ViewDetailsLink } from '../../../components/ViewDetailsLink/page'; // A simple shared component
+// import { ViewDetailsLink } from '../../../components/ViewDetailsLink/page';
 
 export default function DashboardPage() {
   return (

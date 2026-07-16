@@ -2,7 +2,7 @@
 'use client'; // Recharts is a client component
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip } from 'recharts';
-import { Briefcase } from 'lucide-react';
+// import { Briefcase } from 'lucide-react';
 import { ViewDetailsLink } from '../../../../components/ViewDetailsLink/page';
 
 const agentData = [
