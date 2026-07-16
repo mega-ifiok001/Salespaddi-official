@@ -15,7 +15,7 @@ const About = () => {
             About SalesPaddi
           </h3>
           <p className="text-[#E7E5E4]/50 text-sm leading-relaxed">
-            SalesPaddi is an AI-powered webinar and sales platform that automates your entire funnel — from registration to checkout to follow-up. We help creators, coaches, and businesses close more sales with less manual work.
+            SalesPaddi is an AI-powered webinar and sales platform that automates your entire funnel, from registration to checkout to follow-up. We help creators, coaches, and businesses close more sales with less manual work.
           </p>
         </div>
       </div>

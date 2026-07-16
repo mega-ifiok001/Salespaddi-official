@@ -20,21 +20,21 @@ const CORE_FEATURES = [
     icon: <LuMessageSquareText aria-hidden="true" />,
     title: 'Objection-Aware Follow-Up',
     description:
-      'Every call gets transcribed and tagged by objection — price, timing, trust — and a matching follow-up goes out automatically. No other webinar tool does this.',
+      'Every call gets transcribed and tagged by objection — price, timing, trust and a matching follow-up goes out automatically. No other webinar tool does this.',
   },
   {
     id: 3,
     icon: <FiVideo aria-hidden="true" />,
     title: 'Live + Automatic Replay',
     description:
-      'Go live, and a replay is captured and published automatically the moment the webinar ends — no manual upload, no lost leads.',
+      'Go live, and a replay is captured and published automatically the moment the webinar ends no manual upload, no lost leads.',
   },
   {
     id: 4,
     icon: <MdOutlineAddShoppingCart aria-hidden="true" />,
     title: 'Real Checkout, Built In',
     description:
-      'Sell directly inside the webinar with real Stripe checkout — attendees buy without ever leaving the session.',
+      'Sell directly inside the webinar with real Stripe checkout attendees buy without ever leaving the session.',
   },
 ];
 
@@ -75,7 +75,7 @@ const Features = () => {
           </span>
         </h2>
         <p className="text-[#E7E5E4]/50 text-lg leading-relaxed">
-          Built for the moment attendees are most ready to buy — not just
+          Built for the moment attendees are most ready to buy not just
           during the webinar, but everywhere the conversation continues after.
         </p>
       </motion.header>

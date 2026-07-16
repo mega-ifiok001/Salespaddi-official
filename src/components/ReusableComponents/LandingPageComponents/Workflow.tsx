@@ -49,7 +49,7 @@ const workflowSteps = [
     icon: <LuMessageSquareText size={20} />,
     title: 'Smart Follow-Up',
     description:
-      'Every call transcript is tagged by objection and followed up automatically — plus a replay and no-show recovery for everyone who missed it',
+      'Every call transcript is tagged by objection and followed up automatically, plus a replay and no-show recovery for everyone who missed it',
   },
 ];
 
