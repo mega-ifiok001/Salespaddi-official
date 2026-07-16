@@ -27,14 +27,14 @@ export default function OperationalMetrics() {
           <p className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-charcoal-light">
             CRM Integration Status
           </p>
-          <div className="flex items-center gap-2">
-            <div className="relative flex h-2 w-2">
+          <div className="flex items-start gap-2">
+            {/* <div className="relative flex h-2 w-2">
               <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-sage" />
-            </div>
-            <p className="text-sm font-medium text-white/90">Salesforce Connected <span className="text-charcoal-light">(312 leads synced)</span></p>
+            </div> */}
+            <p className="text-[11px] font-medium text-white/90">Salesforce Connected <span className="text-charcoal-light">(312 leads synced)</span></p>
           </div>
-          <p className="text-xs font-medium text-orange/90 pl-4">HubSpot: Paused (token refresh required)</p>
+          <p className="text-[11px] font-medium text-orange/90 ">HubSpot: Paused (token refresh required)</p>
         </div>
 
         {/* Revenue */}
@@ -42,8 +42,8 @@ export default function OperationalMetrics() {
           <p className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-charcoal-light">
              Total CRM-Validated Revenue:
           </p>
-          <p className="text-2xl sm:text-3xl font-bold tracking-tight text-white tabular-nums">
-            $18,900.00
+          <p className="text-xl sm:text-2xl font-bold tracking-tight text-white tabular-nums">
+            ₦23,846,000.00
           </p>
         </div>
       </div>

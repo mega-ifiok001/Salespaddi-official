@@ -36,7 +36,7 @@ const QuickActionCard: React.FC<QuickActionCardProps> = ({ icon, count, label, d
       </div>
 
       <div className="space-y-1">
-        <h3 className="text-2xl font-bold tracking-tight text-white leading-tight">
+        <h3 className="text-xl font-bold tracking-tight text-white leading-tight">
           {/* Main title dynamic count */}
           <span className={`${themeClass} tabular-nums`}>{count} </span>{label}
         </h3>

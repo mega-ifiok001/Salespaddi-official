@@ -56,8 +56,8 @@ const Sidebar = () => {
     <div className="w-15 sm:w-18 h-screen sticky top-0 py-10 px-2 sm:px-6 border bg-background border-border flex flex-col items-center justify-start gap-10">
       <div>
         <Link href="/home">
-        <span className="text-primary font-semibold text-sm">
-          salespadi
+        <span className="text-primary font-semibold text-2xl text-bold">
+          S
         </span>
         </Link>
       </div>
