@@ -1,75 +1,58 @@
-  import { FaShoppingBag } from 'react-icons/fa';
-import { IoCreateSharp } from 'react-icons/io5';
-import OnBoarding from './_components/OnBoarding';
-import FeatureCard from './_components/FeatureCard';
-import FeatureSectionLayout from './_components/FeatureSectionLayout';
-import {
-  AIAgentsContent,
-  SettingsContent,
-} from './_components/ExtraComponents';
-import { redirect } from 'next/navigation';
-import { onAuthenticateUser } from '@/actions/auth';
-import { countWebinars } from '@/actions/webinar';
-import { calculateRevenue, countProducts } from '@/actions/product';
+// src/app/dashboard/page.tsx
+import React from 'react';
+import OnboardingCommandCenter from './_components/OnboardingCommandCenter';
+import QuickActions from './_components/QuickActions';
+import AiAgentOptimization from './_components/AiAgentOptimization';
+import FollowUpCommCenter from './_components/FollowUpCommCenter';
+import OperationalMetrics from './_components/OperationalMetrics';
+import { ViewDetailsLink } from '../../../components/ViewDetailsLink/page'; // A simple shared component
 
-const page = async () => {
-  const userExist = await onAuthenticateUser();
-
-  if (!userExist?.user) {
-    redirect('/sign-in');
-  }
-
-  const totalWebinars = await countWebinars(userExist.user.id);
-  const totalProducts = await countProducts(userExist.user.id);
-  const RevenueCount = await calculateRevenue(userExist.user.id);
-
+export default function DashboardPage() {
   return (
-    <div className="w-full mx-auto h-full px-2 sm:px-4">
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10">
-        <div className="space-y-3 sm:space-y-5">
-          <h2 className="text-primary font-medium text-2xl sm:text-2xl ubuntu-medium">
-            Make your Selling and marketing process seamless and efficient with SalesPaddi
-          </h2>
-          <OnBoarding />
+    <div className="w-full min-h-screen bg-background sm:p-6 lg:p- text-white selection:bg-sage-light">
+      
+      {/* 1. TOP RESPONSIVE LAYER: Command Center & Quick Actions */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
+        
+        {/* Onboarding COMMAND CENTER: 1 col on mobile, 2 col md, 3 col lg */}
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
+          <OnboardingCommandCenter />
         </div>
-        <div className="flex gap-1 sm:gap-3 lg:gap-5 w-full justify-evenly items-center">
-          <FeatureCard
-            Icon={<FaShoppingBag className="w-5 h-5 sm:w-10 sm:h-10" />}
-            heading="Create products and attach them to your webinars"
-            smHeading="Products"
-            link="/products"
-          />
-          <FeatureCard
-            Icon={<IoCreateSharp className="w-5 h-5 sm:w-10 sm:h-10" />}
-            heading="Host webinars and boost your business like never before"
-            smHeading="Webinars"
-            link="/webinars"
-          />
+        
+        {/* Quick Actions: 1 col on mobile, 2 col lg */}
+        <div className="col-span-1 md:col-span-1 lg:col-span-2">
+          <QuickActions />
         </div>
       </div>
 
-      <div className="mt-5 sm:mt-7 2xl:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 rounded-xl bg-background-10">
-        <FeatureSectionLayout
-          heading="Understand user intent and customize your AI agents accordingly"
-          link="/ai-agents"
-        >
-          <AIAgentsContent />
-        </FeatureSectionLayout>
+      {/* 2. DEEP DIVE SECTION: Dynamic Grid, rearranges based on content type */}
+      <div className="mt-8 md:mt-10 lg:mt-12">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white mb-6 md:mb-8">
+          DEEP DIVE
+        </h2>
 
-        <FeatureSectionLayout
-          heading="Manage your Webinars, Products and add demo Stripe integration"
-          link="/settings"
-        >
-          <SettingsContent
-            totalWebinars={totalWebinars.count}
-            stripeId={userExist.user.stripeConnectId}
-            totalProducts={totalProducts.count}
-            revenue={RevenueCount.revenue}
-          />
-        </FeatureSectionLayout>
+        {/* 
+           Responsive Deep Dive Grid Strategy:
+           - Mobile/Tablet: AI Agent Optimization on top of Operational Metrics.
+           - Desktop (3 Col): All three components side-by-side, Follow-Up Comm center is central.
+           The Follow-Up Comm center is the most central and largest, handling complex data.
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-stretch">
+          
+          {/* Bottom Left: AI Agent Optimization */}
+          <AiAgentOptimization />
+          
+          {/* Main Central Area: Follow-Up Comm Center */}
+          {/* xl:col-span-1 (Standard), but it's central by grid placement. 
+             If you want it larger on intermediate screens, you could use xl:col-span-2 
+             and push Operational Metrics. For this design, let's keep them equal. */}
+          <FollowUpCommCenter />
+          
+          {/* Bottom Right: Operational Metrics */}
+          <OperationalMetrics />
+        </div>
       </div>
+
     </div>
   );
-};
-
-export default page;
+}

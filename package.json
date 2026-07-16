@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.20.2",
     "@clerk/themes": "^2.4.51",
+    "@headlessui/react": "^2.2.10",
     "@hookform/resolvers": "^5.0.1",
     "@prisma/client": "^6.12.0",
     "@radix-ui/react-accordion": "^1.2.11",
@@ -63,7 +64,7 @@
     "react-hook-form": "^7.56.4",
     "react-icons": "^5.5.0",
     "react-resizable-panels": "^3.0.2",
-    "recharts": "^2.15.3",
+    "recharts": "^2.15.4",
     "sonner": "^2.0.4",
     "stream-chat": "^9.31.0",
     "stream-chat-react": "^13.13.6",

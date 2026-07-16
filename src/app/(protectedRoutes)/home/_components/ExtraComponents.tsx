@@ -1,61 +1,97 @@
+'use client';
+
 import Link from 'next/link';
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  Cell,
+  Tooltip,
+} from 'recharts';
+
+/* ------------------------------------------------------------------ */
+/*  AI Agents tile — Real radar chart: capability coverage per channel */
+/* ------------------------------------------------------------------ */
+
+const AGENT_CAPABILITY = [
+  { skill: 'Voice', value: 82 },
+  { skill: 'Chat', value: 95 },
+  { skill: 'Email', value: 70 },
+  { skill: 'Workflow', value: 88 },
+];
 
 const AIAgentsContent = () => {
   return (
-    <div className="w-full flex items-center justify-center min-h-[200px]">
-      <Link href="/ai-agents" className="cursor-pointer">
-        <div className="relative">
-          <div className="relative w-32 h-32 mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-[#2c8c88] rounded-full flex items-center justify-center shadow-lg">
-              <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold bg-gradient-to-r text-white bg-clip-text">
-                  AI
-                </span>
-              </div>
-            </div>
+    <div className="w-full p-2">
+      <Link href="/ai-agents" className="group block w-full">
+        <div className="relative rounded-2xl border border-border bg-card/60 p-5 overflow-hidden transition-all duration-300 group-hover:border-emerald-500/30 group-hover:bg-card/80">
+          
+          {/* Subtle Ambient Glow */}
+          <div className="pointer-events-none absolute -top-12 -right-12 w-32 h-32 rounded-full blur-3xl opacity-10 bg-emerald-400 transition-opacity duration-300 group-hover:opacity-20" />
 
-            <div
-              className="absolute inset-0 animate-spin"
-              style={{ animationDuration: '20s' }}
-            >
-              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full shadow-md"></div>
-              <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-3 h-3 bg-yellow-500 rounded-full shadow-md"></div>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full shadow-md"></div>
-              <div className="absolute top-1/2 -left-2 transform -translate-y-1/2 w-3 h-3 bg-purple-500 rounded-full shadow-md"></div>
-            </div>
+          {/* Header row */}
+          <div className="relative flex items-center justify-between mb-4">
+            <span className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">
+              Agent Capability
+            </span>
+            <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-400 bg-emerald-500/5 px-2 py-0.5 rounded-full border border-emerald-500/10">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+              </span>
+              Active
+            </span>
           </div>
 
-          <div className="absolute -top-4 -right-4 flex flex-col gap-1">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <div
-              className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"
-              style={{ animationDelay: '0.5s' }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"
-              style={{ animationDelay: '1s' }}
-            ></div>
+          {/* Chart Wrapper */}
+          <div className="relative h-[160px] w-full my-2 flex items-center justify-center">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart data={AGENT_CAPABILITY} outerRadius="68%">
+                <PolarGrid stroke="rgba(255,255,255,0.06)" />
+                <PolarAngleAxis
+                  dataKey="skill"
+                  tick={{ fill: 'var(--muted-foreground)', fontSize: 10, fontWeight: 500 }}
+                />
+                <Radar
+                  dataKey="value"
+                  stroke="#10b981"
+                  strokeWidth={1.5}
+                  fill="#10b981"
+                  fillOpacity={0.15}
+                />
+                <Tooltip
+                  cursor={false}
+                  contentStyle={{
+                    background: 'var(--card)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 10,
+                    fontSize: 11,
+                    boxShadow: '0 10px 25px -5px rgba(0,0,0,0.3)',
+                  }}
+                  itemStyle={{ color: 'var(--foreground)' }}
+                  labelStyle={{ color: 'var(--muted-foreground)', fontWeight: 500 }}
+                  formatter={(value: number) => [`${value}%`, 'Coverage']}
+                />
+              </RadarChart>
+            </ResponsiveContainer>
           </div>
 
-          <div className="absolute -bottom-4 -left-4 flex flex-col gap-1">
-            <div
-              className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"
-              style={{ animationDelay: '1.5s' }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"
-              style={{ animationDelay: '2s' }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"
-              style={{ animationDelay: '2.5s' }}
-            ></div>
-          </div>
+          <p className="text-center text-xs text-muted-foreground/80 mt-2">
+            Optimized channel response intent metrics
+          </p>
         </div>
       </Link>
     </div>
   );
 };
+
+/* ------------------------------------------------------------------ */
+/*  Settings tile — Real bar chart on live counts + revenue hero stat  */
+/* ------------------------------------------------------------------ */
 
 type Props = {
   totalWebinars: number;
@@ -64,73 +100,104 @@ type Props = {
   revenue: string;
 };
 
+const CustomBarTooltip = ({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: { payload: { name: string; value: number } }[];
+}) => {
+  if (!active || !payload?.length) return null;
+  const { name, value } = payload[0].payload;
+  return (
+    <div className="rounded-lg border border-border bg-card/90 backdrop-blur-md px-2.5 py-1.5 text-xs shadow-xl">
+      <span className="text-muted-foreground font-medium">{name}: </span>
+      <span className="font-semibold text-foreground">{value}</span>
+    </div>
+  );
+};
+
 const SettingsContent = ({
   totalWebinars,
   stripeId,
   totalProducts,
   revenue,
 }: Props) => {
+  const isActive = !!stripeId;
+
+  const usageData = [
+    { name: 'Webinars', value: totalWebinars, fill: 'rgba(255, 255, 255, 0.15)' },
+    { name: 'Products', value: totalProducts, fill: '#10b981' },
+  ];
+
   return (
-    <div className="w-full flex items-center justify-center min-h-[200px]">
-      <Link href="/settings" className="cursor-pointer">
-        <div className="relative">
-          <div className="grid grid-cols-2 gap-3 p-4 bg-card border-border rounded-lg shadow-lg border">
-            <div className="bg-gradient-to-br from-gray-700 to-blue-800 p-3 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="hidden sm:block w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-xs font-medium text-white">Webinars</span>
-              </div>
-              <div className="text-lg font-bold text-white">
-                {totalWebinars}
-              </div>
+    <div className="w-full p-2">
+      <Link href="/settings" className="group block w-full">
+        <div className="relative rounded-2xl border border-border bg-card/60 p-5 transition-all duration-300 group-hover:border-emerald-500/30 group-hover:bg-card/80">
+          
+          {/* Header Block */}
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <div className="space-y-0.5">
+              <p className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">
+                Total Revenue
+              </p>
+              <p className="text-2xl font-bold tabular-nums tracking-tight text-foreground">
+                {revenue}
+              </p>
             </div>
-
-            <div className="bg-gradient-to-br border border-border from-gray-700 to-green-800 p-3 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="hidden sm:block w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-xs font-medium text-white">Products</span>
-              </div>
-              <div className="text-lg font-bold text-white">
-                {totalProducts}
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br border border-border from-gray-700 to-purple-800 p-3 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="hidden sm:block w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span className="text-xs font-medium text-white">Revenue</span>
-              </div>
-              <div className="text-lg font-bold text-white">{revenue}</div>
-            </div>
-
-            <div className="bg-gradient-to-br border border-border from-gray-700 to-orange-800 p-3 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="hidden sm:block w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-white">Stripe</span>
-              </div>
-              <div className="text-md font-bold text-white">
-                {!stripeId ? `InActive` : `Active`}
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -top-2 -right-2">
-            <div
-              className="w-6 h-6 border-2 border-gray-400 rounded-full flex items-center justify-center animate-spin"
-              style={{ animationDuration: '3s' }}
+            
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
+                isActive
+                  ? 'border-emerald-500/20 text-emerald-400 bg-emerald-500/5'
+                  : 'border-border bg-secondary/50 text-muted-foreground'
+              }`}
             >
-              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-            </div>
+              <span className="relative flex h-1.5 w-1.5">
+                {isActive && (
+                  <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                )}
+                <span
+                  className={`relative inline-flex rounded-full h-1.5 w-1.5 ${
+                    isActive ? 'bg-emerald-400' : 'bg-muted-foreground/60'
+                  }`}
+                />
+              </span>
+              {isActive ? 'Stripe Active' : 'Stripe Inactive'}
+            </span>
           </div>
 
-          <div className="absolute -bottom-1 -left-1">
-            <div
-              className="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center animate-spin"
-              style={{ animationDuration: '4s', animationDirection: 'reverse' }}
-            >
-              <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
-            </div>
+          {/* Bar Chart Container */}
+          <div className="my-4 h-[110px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={usageData} barCategoryGap="40%">
+                <Tooltip 
+                  cursor={{ fill: 'rgba(255,255,255,0.02)', radius: 6 }} 
+                  content={<CustomBarTooltip />} 
+                />
+                <Bar dataKey="value" radius={[6, 6, 0, 0]}>
+                  {usageData.map((entry, idx) => (
+                    <Cell 
+                      key={`cell-${idx}`} 
+                      fill={entry.fill} 
+                      className="transition-opacity duration-300 group-hover:opacity-90"
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
           </div>
+
+          {/* Legend/Data Indicators Layout */}
+          <div className="grid grid-cols-2 gap-4 border-t border-border/40 pt-3 mt-2">
+            {usageData.map((row) => (
+              <div key={row.name} className="flex flex-col items-center justify-center text-center">
+                <p className="text-[11px] font-medium text-muted-foreground">{row.name}</p>
+                <p className="text-base font-semibold tabular-nums text-foreground mt-0.5">{row.value}</p>
+              </div>
+            ))}
+          </div>
+          
         </div>
       </Link>
     </div>
