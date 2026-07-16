@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: [
         'ubiquitous-computing-machine-jj5rvvgrw555fj5q7-3000.app.github.dev',
-        'localhost:3000',
+        'http://localhost:3000',
         "https://salespaddi-official.vercel.app/"
       ],
     },

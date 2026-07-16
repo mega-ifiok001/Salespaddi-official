@@ -32,7 +32,9 @@ export const getAllAssistants = async () => {
         typeof body === 'object' &&
         body !== null &&
         'message' in body &&
-        (body as { message: unknown }).message === 'JWT has expired.';
+        ((body as { message: unknown }).message === 'JWT has expired.' ||
+          typeof (body as { message: unknown }).message === 'string' &&
+          (body as { message: string }).message.includes("can't have expiration more than an hour"));
 
       const isExpiredByMessage =
         typeof message === 'string' && message.includes('JWT has expired');

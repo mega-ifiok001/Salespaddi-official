@@ -11,7 +11,7 @@ export function getVapiClient() {
 
   const key = process.env.VAPI_PRIVATE_KEY!;
 
-  const token = jwt.sign(payload, key, { expiresIn: 3600 });
+  const token = jwt.sign(payload, key, { expiresIn: 3540 });
 
   console.log('Generated new JWT token at:', new Date().toISOString());
 
