@@ -4,7 +4,7 @@ import React from 'react';
 import { User } from '@prisma/client';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRight, Sparkles, MessageSquare, 
+  ArrowRight, MessageSquare, 
   Video, Mail, Check, Activity
 } from 'lucide-react';
 import Link from 'next/link';
